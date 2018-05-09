@@ -7,13 +7,11 @@ import ch.bbc.uek223.jeers.util.FaceletMessage;
 import com.google.common.base.Charsets;
 import com.google.common.hash.Hashing;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import java.util.List;
 
 @ManagedBean(name = "person")
 @RequestScoped
