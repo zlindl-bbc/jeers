@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="jeers-app:ear exploded">
+    <output-path>$PROJECT_DIR$/jeers-app/target/jeers-app-1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="jeers-app/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/jeers-app/target/jeers-app-1.0/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/jeers-app/src/main/application" />
+      <element id="archive" name="jeers-web.war">
+        <element id="artifact" artifact-name="jeers-web:war exploded" />
+      </element>
+      <element id="archive" name="jeers-ejb.jar">
+        <element id="artifact" artifact-name="jeers-ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="archive" name="jeers-jpa-1.0.jar">
+          <element id="module-output" name="jeers-jpa" />
+        </element>
+        <element id="library" level="project" name="Maven: com.google.guava:guava:25.0-jre" />
+        <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:1.3.9" />
+        <element id="library" level="project" name="Maven: org.checkerframework:checker-compat-qual:2.0.0" />
+        <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.1.3" />
+        <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
+        <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" />
+      </element>
+    </root>
+  </artifact>
+</component>

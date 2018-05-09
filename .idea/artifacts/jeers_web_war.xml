@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jeers-web:war">
+    <output-path>$PROJECT_DIR$/jeers-web/target</output-path>
+    <root id="archive" name="jeers-web-1.0.war">
+      <element id="artifact" artifact-name="jeers-web:war exploded" />
+    </root>
+  </artifact>
+</component>

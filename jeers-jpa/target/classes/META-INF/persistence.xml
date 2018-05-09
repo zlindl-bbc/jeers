@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+	<persistence-unit name="jeers" transaction-type="JTA">
+		<jta-data-source>jeers</jta-data-source>
+		<class>ch.bbc.uek223.jeers.entities.Event</class>
+		<class>ch.bbc.uek223.jeers.entities.Person</class>
+		<class>ch.bbc.uek223.jeers.entities.PersonRolle</class>
+		<class>ch.bbc.uek223.jeers.entities.Rolle</class>
+		<class>ch.bbc.uek223.jeers.entities.Ticket</class>
+		<class>ch.bbc.uek223.jeers.entities.TicketKategorie</class>
+		<properties>
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.timestamp" value="false" />
+			<property name="eclipselink.logging.session" value="false" />
+			<property name="eclipselink.logging.connection" value="false" />
+			<property name="eclipselink.logging.thread" value="false" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

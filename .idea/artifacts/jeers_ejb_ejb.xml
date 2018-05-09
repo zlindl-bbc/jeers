@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="jeers-ejb:ejb">
+    <output-path>$PROJECT_DIR$/jeers-ejb/target</output-path>
+    <root id="archive" name="jeers-ejb-1.0.jar">
+      <element id="artifact" artifact-name="jeers-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

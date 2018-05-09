@@ -1,0 +1,14 @@
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+>
+<h:head>
+    <title>TicketKategorie</title>
+</h:head>
+<h:body>
+    <h:dataTable value="#{ticketKategorie.ticketList}" var="ticketKategorie">
+        <h:column>
+            <h:outputText value="#{ticketKategorie.name}" />
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>

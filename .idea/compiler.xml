@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jeers-app" />
+        <module name="jeers-ejb" />
+        <module name="jeers-jpa" />
+        <module name="jeers-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jeers" target="1.5" />
+      <module name="jeers-app" target="1.5" />
+      <module name="jeers-ejb" target="1.8" />
+      <module name="jeers-jpa" target="1.8" />
+      <module name="jeers-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
