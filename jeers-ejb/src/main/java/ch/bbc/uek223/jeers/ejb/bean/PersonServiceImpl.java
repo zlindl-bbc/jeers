@@ -29,23 +29,16 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public boolean login(String email, String passwort) {
-        if (em.createNamedQuery("Person.checkLogin", Person.class).setParameter("email", email)
-                .setParameter("passwort", passwort) != null) {
+    public boolean login(Person person) {
+        if (em.createNamedQuery("Person.checkLogin", Person.class).setParameter("email", person.getEmail())
+                .setParameter("passwort", person.getPasswort()) != null) {
             return true;
         }
         return false;
     }
 
     @Override
-    public void register(String vorname, String name, String email, String adresse, String ort, String passwort) {
-        Person newPerson = new Person();
-        newPerson.setVorname(vorname);
-        newPerson.setName(name);
-        newPerson.setEmail(email);
-        newPerson.setAdresse(adresse);
-        newPerson.setOrt(ort);
-        newPerson.setPasswort(passwort);
-        em.persist(newPerson);
+    public void register(Person person) {
+        em.persist(person);
     }
 }

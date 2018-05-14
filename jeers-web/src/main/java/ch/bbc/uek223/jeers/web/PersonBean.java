@@ -23,11 +23,12 @@ public class PersonBean {
 
     private Person person = new Person();
 
+    public Logger logger = Logger.getLogger(PersonBean.class.getName());
+
     public String login() {
-        Logger logger = Logger.getLogger(PersonBean.class.getName());
         logger.info(person.getEmail() + " " + person.getPasswort());
-        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
-        if (personService.login(person.getEmail(), hashPasswort)) {
+        person.setPasswort(Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString());
+        if (personService.login(person)) {
             FaceletMessage.showMessage(FacesContext.getCurrentInstance(),
                     FacesMessage.SEVERITY_INFO,
                     null,
@@ -42,8 +43,8 @@ public class PersonBean {
     }
 
     public String register() {
-        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
-        personService.register(person.getVorname(), person.getName(), person.getEmail(), person.getAdresse(), person.getOrt(), hashPasswort);
+        person.setPasswort(Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString());
+        personService.register(person);
         return "";
     }
 
