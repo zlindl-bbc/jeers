@@ -25,14 +25,13 @@ public class PersonBean {
     public String login() {
         System.out.println("PersonBean.login");
         System.out.println(person.getEmail());
-        String hashPasswort = Hashing.sha256().hashString( person.getPasswort(), Charsets.UTF_8 ).toString();
-        if(personService.login(person.getEmail(), hashPasswort)){
+        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
+        if (personService.login(person.getEmail(), hashPasswort)) {
             FaceletMessage.showMessage(FacesContext.getCurrentInstance(),
                     FacesMessage.SEVERITY_INFO,
                     null,
                     "Login erfolgreich", null);
-        }
-        else {
+        } else {
             FaceletMessage.showMessage(FacesContext.getCurrentInstance(),
                     FacesMessage.SEVERITY_INFO,
                     null,
@@ -43,7 +42,8 @@ public class PersonBean {
 
     public String register() {
         //TODO
-        personService.register(person.getName(), person.getAdresse(), person.getEmail());
+        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
+        personService.register(person.getVorname(), person.getName(), person.getEmail(), person.getAdresse(), person.getOrt(), hashPasswort);
         return "";
     }
 
