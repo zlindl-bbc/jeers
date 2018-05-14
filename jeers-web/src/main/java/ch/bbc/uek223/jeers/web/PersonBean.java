@@ -21,18 +21,13 @@ public class PersonBean {
     @EJB
     private PersonService personService;
 
-    private String vorname;
-    private String name;
-    private String email;
-    private String adresse;
-    private String ort;
-    private String passwort;
+    private Person person = new Person();
 
     public String login() {
         Logger logger = Logger.getLogger(PersonBean.class.getName());
-        logger.info(getEmail() + " " + getPasswort());
-        String hashPasswort = Hashing.sha256().hashString(getPasswort(), Charsets.UTF_8).toString();
-        if (personService.login(getEmail(), hashPasswort)) {
+        logger.info(person.getEmail() + " " + person.getPasswort());
+        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
+        if (personService.login(person.getEmail(), hashPasswort)) {
             FaceletMessage.showMessage(FacesContext.getCurrentInstance(),
                     FacesMessage.SEVERITY_INFO,
                     null,
@@ -47,56 +42,24 @@ public class PersonBean {
     }
 
     public String register() {
-        String hashPasswort = Hashing.sha256().hashString(getPasswort(), Charsets.UTF_8).toString();
-        personService.register(getVorname(), getName(), getEmail(), getAdresse(), getOrt(), hashPasswort);
+        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
+        personService.register(person.getVorname(), person.getName(), person.getEmail(), person.getAdresse(), person.getOrt(), hashPasswort);
         return "";
     }
 
-    public String getVorname() {
-        return vorname;
+    public PersonService getPersonService() {
+        return personService;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public void setPersonService(PersonService personService) {
+        this.personService = personService;
     }
 
-    public String getName() {
-        return name;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getOrt() {
-        return ort;
-    }
-
-    public void setOrt(String ort) {
-        this.ort = ort;
-    }
-
-    public String getPasswort() {
-        return passwort;
-    }
-
-    public void setPasswort(String passwort) {
-        this.passwort = passwort;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
