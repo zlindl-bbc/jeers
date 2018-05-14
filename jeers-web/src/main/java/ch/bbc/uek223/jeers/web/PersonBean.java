@@ -41,6 +41,12 @@ public class PersonBean {
         return "";
     }
 
+    public String register() {
+        //TODO
+        personService.register(person.getName(), person.getAdresse(), person.getEmail());
+        return "";
+    }
+
     public Person getPerson() {
         return person;
     }
