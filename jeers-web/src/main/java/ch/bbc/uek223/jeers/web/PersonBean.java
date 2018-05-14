@@ -12,6 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import java.util.logging.Logger;
 
 @ManagedBean(name = "person")
 @RequestScoped
@@ -20,13 +21,18 @@ public class PersonBean {
     @EJB
     private PersonService personService;
 
-    private Person person = new Person();
+    private String vorname;
+    private String name;
+    private String email;
+    private String adresse;
+    private String ort;
+    private String passwort;
 
     public String login() {
-        System.out.println("PersonBean.login");
-        System.out.println(person.getEmail());
-        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
-        if (personService.login(person.getEmail(), hashPasswort)) {
+        Logger logger = Logger.getLogger(PersonBean.class.getName());
+        logger.info(getEmail() + " " + getPasswort());
+        String hashPasswort = Hashing.sha256().hashString(getPasswort(), Charsets.UTF_8).toString();
+        if (personService.login(getEmail(), hashPasswort)) {
             FaceletMessage.showMessage(FacesContext.getCurrentInstance(),
                     FacesMessage.SEVERITY_INFO,
                     null,
@@ -41,17 +47,56 @@ public class PersonBean {
     }
 
     public String register() {
-        //TODO
-        String hashPasswort = Hashing.sha256().hashString(person.getPasswort(), Charsets.UTF_8).toString();
-        personService.register(person.getVorname(), person.getName(), person.getEmail(), person.getAdresse(), person.getOrt(), hashPasswort);
+        String hashPasswort = Hashing.sha256().hashString(getPasswort(), Charsets.UTF_8).toString();
+        personService.register(getVorname(), getName(), getEmail(), getAdresse(), getOrt(), hashPasswort);
         return "";
     }
 
-    public Person getPerson() {
-        return person;
+    public String getVorname() {
+        return vorname;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getOrt() {
+        return ort;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
     }
 }

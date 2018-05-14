@@ -36,4 +36,16 @@ public class PersonServiceImpl implements PersonService {
         }
         return false;
     }
+
+    @Override
+    public void register(String vorname, String name, String email, String adresse, String ort, String passwort) {
+        Person newPerson = new Person();
+        newPerson.setVorname(vorname);
+        newPerson.setName(name);
+        newPerson.setEmail(email);
+        newPerson.setAdresse(adresse);
+        newPerson.setOrt(ort);
+        newPerson.setPasswort(passwort);
+        em.persist(newPerson);
+    }
 }

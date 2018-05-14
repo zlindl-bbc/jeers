@@ -10,13 +10,13 @@
     <h:form id="personForm">
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="email" value="Email:" />
-            <p:inputText id="email" value="#{person.person.email}" required="true" label="email" />
+            <p:inputText id="email" value="#{person.email}" required="true" label="email" />
 
             <h:outputLabel for="passwort" value="passwort:" />
-            <p:password id="passwort" value="#{person.person.passwort}" required="true" label="passwort" />
+            <p:password id="passwort" value="#{person.passwort}" required="true" label="passwort" />
 
             <f:facet name="footer">
-                <p:commandButton value="Login" actionListener="#{person.person.login}" />
+                <p:commandButton value="Login" actionListener="#{person.login}" />
             </f:facet>
         </h:panelGrid>
 

@@ -13,4 +13,6 @@ public interface PersonService {
     List<Person> getAllPerson();
 
     boolean login(String email, String passwort);
+
+    void register(String vorname, String name, String email, String adresse, String ort, String passwort);
 }
